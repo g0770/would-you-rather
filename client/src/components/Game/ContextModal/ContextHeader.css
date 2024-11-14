@@ -1,0 +1,30 @@
+.ContextHeader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 10vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  font-size: 1.5em;
+}
+
+.Context{
+  height: 100%;
+  width: 40%;
+  border-radius: 15px;
+  background-color: #EEEEEE;
+  color: #1A1A1D;;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+
+  svg {
+    width: 25%;
+    height: 100%;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+  }
+}
+
