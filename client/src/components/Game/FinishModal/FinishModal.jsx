@@ -25,7 +25,7 @@ const style = {
   p: 4,
 };
 
-export default function FinishModal({data,setFinished}) {
+export default function FinishModal({data,setFinished, isAdminPanel = false}) {
   const dispatch = useDispatch()
   const prompt = useSelector(state => state.selectedPrompt)
 
@@ -33,7 +33,6 @@ export default function FinishModal({data,setFinished}) {
     dispatch(getRandomPrompt())
     setFinished(false)
   }
-
   return (
     <div>
       <Modal
@@ -46,14 +45,23 @@ export default function FinishModal({data,setFinished}) {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           <VictoryPie
             data={[
-              { x: "Red", y: data.votesOpt1 },
-              { x: "Blue", y: data.votesOpt2 }
+              { x: "Red", y: data?.votesOpt1 || data[0]?.votesOpt1 },
+              { x: "Blue", y: data?.votesOpt2 || data[0]?.votesOpt2 }
             ]}
             theme={VictoryTheme.clean}
+            colorScale={["red", "blue"]}
           />
+
+          {isAdminPanel && (
+            <>
+              <h3>Red (Right, Option 1): {data?.votesOpt1 || data[0]?.votesOpt1}</h3>
+              <h3>Blue (Right, Option 2): {data?.votesOpt2 || data[0]?.votesOpt2}</h3>
+            </>
+          )}
+
           </Typography>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            <button onClick={handleNext}>Continue</button> <button onClick={() => setFinished(false)}>Back</button>
+            <button style={isAdminPanel ? {display: "none"} : null} onClick={isAdminPanel ? null : handleNext }>Continue</button> <button onClick={() => setFinished(false)}>Back</button>
           </Typography>
         </Box>
       </Modal>

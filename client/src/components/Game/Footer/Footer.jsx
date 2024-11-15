@@ -8,6 +8,8 @@ import InfoIcon from '@mui/icons-material/Info';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import SettingsIcon from '@mui/icons-material/Settings';
 
+import { Link } from 'react-router-dom'
+
 function Footer() {
   const [focused, setFocused] = useState(false)
   const dispatch = useDispatch()
@@ -34,7 +36,7 @@ function Footer() {
       }}
       animate={focused ? {y:1} : {y:"7vh"}}
       >
-        <SettingsIcon/><InfoIcon onClick={handleShowContext}/><DoubleArrowIcon onClick={handleSkip}/>
+        <Link to={'/admin'} style={{color: ' #1A1A1D', borderColor: "transparent"}}><SettingsIcon/></Link><InfoIcon onClick={handleShowContext}/><DoubleArrowIcon onClick={handleSkip}/>
       </motion.div>
     </motion.div>
   )

@@ -4,6 +4,7 @@ import './App.css';
 import Game from './components/Game/Game';
 import Footer from './components/Game/Footer/Footer';
 import ContextHeader from './components/Game/ContextModal/ContextHeader';
+import AdminPanel from './components/AdminPanel/AdminPanel';
 
 function App() {
 
@@ -30,9 +31,10 @@ function App() {
       <Routes>
         <Route element={<HeaderWrapper/>}>
           <Route element={<FooterWrapper/>}>
-            <Route path="/play" element={<Game/>} />
+            <Route index path="/" element={<Game/>} />
           </Route>
         </Route>
+        <Route path="/admin" element={<AdminPanel/>}/>
       </Routes>
     </div>
     

@@ -25,5 +25,10 @@
     height: 100%;
     filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
   }
+
+  svg:hover {
+    cursor:pointer;
+    transform: scale()
+  }
 }
 

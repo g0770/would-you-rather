@@ -108,7 +108,7 @@ const updatePrompt = async (req, res, next) => {
       context : context ? context : getPrompt.context,
       votesOpt1 : votesOpt1 ? votesOpt1 : getPrompt.votesOpt1,
       votesOpt2 : votesOpt2 ? votesOpt2 : getPrompt.votesOpt2,
-      active : active !== undefined ? active : getPrompt.active
+      active : typeof active === 'boolean' ? active : getPrompt.active,
     })
     res.status(200).json({msg: "Prompt updated successfully!" , prompt: updatePrompt})
   } catch (error) {
